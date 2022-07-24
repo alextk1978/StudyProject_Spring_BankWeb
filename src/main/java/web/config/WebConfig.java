@@ -1,6 +1,5 @@
-package config;
+package web.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,14 +12,13 @@ import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 
 @Configuration
-@ComponentScan("java")
 @EnableWebMvc
-public class SpringConfig implements WebMvcConfigurer {
+@ComponentScan("web")
+public class WebConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
 
-    @Autowired
-    public SpringConfig(ApplicationContext applicationContext) {
+    public WebConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
@@ -28,7 +26,7 @@ public class SpringConfig implements WebMvcConfigurer {
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/view/");
+        templateResolver.setPrefix("/WEB-INF/pages");
         templateResolver.setSuffix(".html");
         return templateResolver;
     }

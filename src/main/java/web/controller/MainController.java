@@ -1,10 +1,12 @@
-package controller;
+package web.controller;
 
-import entity.DebitCard;
-import entity.Loan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import web.model.DebitCard;
+import web.model.Loan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,35 +19,35 @@ public class MainController {
 
     @GetMapping("/")
     public String mainPage(){
-        return "/view/firstView";
+        return "/firstView";
     }
 
     @GetMapping("/cards")
     public String cardsPage(Model model){
 
         model.addAttribute("cardsList", cards);
-        return "/view/cardView";
+        return "/cardView";
     }
 
     @GetMapping("/loans")
     public String loansPage(Model model){
 
         model.addAttribute("loansList", loans);
-        return "/view/loanView";
+        return "/loanView";
     }
 
     @GetMapping("/newCard")
     public String newCard(Model model) {
 
         model.addAttribute("debitCard", new DebitCard());
-        return "/view/newCardView";
+        return "/newCardView";
     }
 
     @GetMapping("/newLoan")
     public String newLoan(Model model) {
 
         model.addAttribute(new Loan());
-        return "/view/newLoanView";
+        return "/newLoanView";
     }
 
     @PostMapping("/newCard")
