@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+
+<body>
+<h2>Hello! For creating new loan, please fill next form:</h2>
+
+<br>
+
+<form action = "/main" modelAttribute = "loans">
+
+    Loan size: <input path = "summ"/>
+    <br>
+    Duration Loan: <input path = "durationLoan"/>
+
+    <input type = "submit" value="Ok">
+
+</form>
+</body>
+</html>

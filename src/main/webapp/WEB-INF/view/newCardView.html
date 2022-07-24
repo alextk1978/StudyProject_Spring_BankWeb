@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+
+<h2>Hello! For creating new card, please fill next form:</h2>
+<br>
+
+<form th:method="POST" th:action="@{/newCard}" th:object="${debitCard}">
+    <input type="text" th:field="*{currentBalance}" id="curBal">
+    <input type="submit" value="ok">
+</form>
+
+
+</body>
+</html>
